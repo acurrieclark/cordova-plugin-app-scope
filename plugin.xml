@@ -13,6 +13,8 @@
   </engines>
 
 
+  <hook type="before_compile" src="src/ios/swift-hook.js" />
+
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
       <feature name="AppScope">
