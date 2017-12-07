@@ -2,7 +2,7 @@
 
 extension CDVAppDelegate {
 
-    func application(_ application: UIApplication, continue userActivity:NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) {
+    func application(_ application: UIApplication, continue userActivity:NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         NSLog("CORDOVA-PLUGIN: Called continueUserActivity")
 
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
