@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-app-scope"
+        version="1.0.0">
+
+  <name>cordova-plugin-app-scope</name>
+  <description>Cordova plugin for delegating handling of URL scopes to the application</description>
+  <keywords>cordova,ios,android,url,scope</keywords>
+
+  <engines>
+    <engine name="cordova-ios" version=">= 4.5.0" />
+    <engine name="cordova-android" version=">= 7.0.0" />
+  </engines>
+
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="AppScope">
+        <param name="ios-package" value="CDVAppScopePlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/ios/CDVAppDelegate+AppScope.swift" />
+    <source-file src="src/ios/CDVAppScopePlugin.swift" />
+  </platform>
+</plugin>

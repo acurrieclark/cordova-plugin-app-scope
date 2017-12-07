@@ -1,0 +1,33 @@
+{
+  "name": "cordova-plugin-app-scope",
+  "version": "1.0.0-dev",
+  "author": "Ayogo Health Inc. <info@ayogo.com>",
+  "description": "Cordova plugin for delegating handling of URL scopes to the application",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyogoHealth/cordova-plugin-app-scope.git"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "cordova": {
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">= 7.0.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">= 4.5.0"
+    }
+  ]
+}
