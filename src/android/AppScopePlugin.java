@@ -44,7 +44,7 @@ public class AppScopePlugin extends CordovaPlugin {
         LOG.v(TAG, "Handling intent URL: " + intentUri.toString());
 
         if (intentUri.toString().startsWith(this.appScope)) {
-            this.webView.loadUrlIntoView(intentUri.toString(), true);
+            this.webView.loadUrlIntoView(intentUri.toString(), false);
         }
     }
 
