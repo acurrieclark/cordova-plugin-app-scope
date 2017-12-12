@@ -26,4 +26,16 @@
     <source-file src="src/ios/CDVAppDelegate+AppScope.swift" />
     <source-file src="src/ios/CDVAppScopePlugin.swift" />
   </platform>
+
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AppScope">
+        <param name="android-package" value="com.ayogo.cordova.appscope.AppScopePlugin" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/AppScopePlugin.java" target-dir="src/com/ayogo/cordova/appscope" />
+  </platform>
 </plugin>
