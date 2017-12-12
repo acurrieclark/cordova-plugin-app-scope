@@ -12,8 +12,7 @@
     <engine name="cordova-android" version=">= 7.0.0" />
   </engines>
 
-
-  <hook type="before_compile" src="src/ios/swift-hook.js" />
+  <hook type="after_prepare" src="src/prepare_hook.js" />
 
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
@@ -25,6 +24,8 @@
 
     <source-file src="src/ios/CDVAppDelegate+AppScope.swift" />
     <source-file src="src/ios/CDVAppScopePlugin.swift" />
+
+    <hook type="after_prepare" src="src/ios/swift-hook.js" />
   </platform>
 
 
