@@ -21,13 +21,19 @@ public class AppScopePlugin extends CordovaPlugin {
      */
     @Override
     public void pluginInitialize() {
-        LOG.v(TAG, "Initializing");
+        LOG.i(TAG, "Initializing");
 
         this.appScope = preferences.getString("scope", null);
-
-        onNewIntent(cordova.getActivity().getIntent());
     }
 
+
+    /**
+     * Called when the activity is becoming visible to the user.
+     */
+    @Override
+    public void onStart() {
+        onNewIntent(cordova.getActivity().getIntent());
+    }
 
 
     /**
@@ -41,7 +47,7 @@ public class AppScopePlugin extends CordovaPlugin {
 
         final Uri intentUri = intent.getData();
 
-        LOG.v(TAG, "Handling intent URL: " + intentUri.toString());
+        LOG.i(TAG, "Handling intent URL: " + intentUri.toString());
 
         if (intentUri.toString().startsWith(this.appScope)) {
             this.webView.loadUrlIntoView(intentUri.toString(), false);
