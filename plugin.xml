@@ -13,6 +13,7 @@
   </engines>
 
   <hook type="after_prepare" src="src/prepare_hook.js" />
+  <hook type="after_prepare" src="src/ios/swift-hook.js" />
 
   <platform name="ios">
     <config-file parent="/*" target="config.xml">
@@ -22,10 +23,9 @@
       </feature>
     </config-file>
 
-    <source-file src="src/ios/CDVAppDelegate+AppScope.swift" />
+    <header-file src="src/ios/CDVAppDelegate+AppScope.h" />
+    <source-file src="src/ios/CDVAppDelegate+AppScope.m" />
     <source-file src="src/ios/CDVAppScopePlugin.swift" />
-
-    <hook type="after_prepare" src="src/ios/swift-hook.js" />
   </platform>
 
 
