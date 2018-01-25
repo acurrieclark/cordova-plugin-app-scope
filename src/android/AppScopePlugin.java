@@ -52,7 +52,7 @@ public class AppScopePlugin extends CordovaPlugin {
         final Uri remapped = this.remapUri(intentUri);
 
         if (remapped != null) {
-            this.webView.loadUrlIntoView(remapped.toString(), false);
+            webView.loadUrl("javascript:window.location.assign('" + remapped.toString() + "')");
         }
     }
 
