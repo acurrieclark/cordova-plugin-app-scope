@@ -97,7 +97,7 @@ public class AppScopePlugin extends CordovaPlugin {
         }
 
         String remapped = uri.toString().replace(this.appScope, "");
-        if (remapped.startsWith("#")) {
+        if (remapped.startsWith("#") || remapped.startsWith("?")) {
             remapped = "index.html" + remapped;
         }
         return Uri.parse("file:///android_asset/www/" + remapped);
