@@ -5,6 +5,10 @@ package com.ayogo.cordova.appscope;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.LOG;
@@ -97,9 +101,42 @@ public class AppScopePlugin extends CordovaPlugin {
         }
 
         String remapped = uri.toString().replace(this.appScope, "");
-        if (remapped.startsWith("#") || remapped.startsWith("?")) {
+        if (remapped.startsWith("#") || remapped.startsWith("?") || remapped.length() == 0) {
             remapped = "index.html" + remapped;
         }
-        return Uri.parse("file:///android_asset/www/" + remapped);
+
+        String resultURL = "file:///android_asset/www/" + remapped;
+
+        try {
+            CordovaPlugin codepush = this.webView.getPluginManager().getPlugin("CodePush");
+            if (codepush != null) {
+                Class codepushClass = codepush.getClass();
+                Field pkgMgr = codepushClass.getDeclaredField("codePushPackageManager");
+                pkgMgr.setAccessible(true);
+
+                Object codePushPackageManager = pkgMgr.get(codepush);
+
+                Class cppmClass = pkgMgr.getType();
+
+                Method getCurrentPackageMetadata = cppmClass.getDeclaredMethod("getCurrentPackageMetadata");
+
+                Object packageMetadata = getCurrentPackageMetadata.invoke(codePushPackageManager);
+
+                if (packageMetadata != null) {
+                    Class metadataClass = getCurrentPackageMetadata.getReturnType();
+                    Field localPathField = metadataClass.getDeclaredField("localPath");
+                    String localPath = (String)localPathField.get(packageMetadata);
+
+                    if (localPath != null) {
+                        resultURL = "file://" + this.cordova.getActivity().getFilesDir() + localPath + "www/" + remapped;
+                    }
+                }
+            }
+        } catch (Exception e) {
+          LOG.e(TAG, Log.getStackTraceString(e));
+        }
+
+        LOG.d(TAG, "Result URL is " + resultURL);
+        return Uri.parse(resultURL);
     }
 }
