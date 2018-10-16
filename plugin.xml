@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-app-scope"
-        version="1.0.0">
+<!--
+  Copyright 2018 Ayogo Health Inc.
 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-app-scope" version="1.0.0">
   <name>cordova-plugin-app-scope</name>
-  <description>Cordova plugin for delegating handling of URL scopes to the application</description>
+  <description>Cordova plugin for delegating handling of URL scopes to the application.</description>
   <keywords>cordova,ios,android,url,scope</keywords>
+  <license>Apache 2.0</license>
+  <repo>https://github.com/AyogoHealth/cordova-plugin-app-scope.git</repo>
+  <issues>https://github.com/AyogoHealth/cordova-plugin-app-scope/issues</issues>
 
   <engines>
     <engine name="cordova-ios" version=">= 4.5.0" />
