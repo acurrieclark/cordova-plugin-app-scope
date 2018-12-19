@@ -5,7 +5,8 @@
   "contributors": [
     "Darryl Pogue <darryl@dpogue.ca>",
     "Raul Souza <raul.souza@ayogo.com>",
-    "Stacey Vachon <hello@staceyvachon.com>"
+    "Stacey Vachon <hello@staceyvachon.com>",
+    "Sam Evanuk <samevanuk@gmail.com>"
   ],
   "description": "Cordova plugin for delegating handling of URL scopes to the application.",
   "license": "Apache-2.0",
