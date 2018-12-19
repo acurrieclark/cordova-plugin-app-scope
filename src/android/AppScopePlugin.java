@@ -115,7 +115,7 @@ public class AppScopePlugin extends CordovaPlugin {
 
         String remapped = uri.toString().replace(this.appScope, "");
 
-        if (remapped.startWith("/")) {
+        if (remapped.startsWith("/")) {
             remapped = remapped.substring(1);
         }
 
