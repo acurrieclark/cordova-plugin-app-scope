@@ -42,7 +42,7 @@ Usage
 
 This plugin will take an HTTPS URL scope, and translate any URL within that scope into a local path to within the application bundle. For example, if the scope were defined as `https://example.com/myapp/` and the app were asked to load `https://example.com/myapp/products/index.html`, it would rewrite the URL to point to the bundled www files of the Cordova application. In this example on Android, it would result in `file:///android_asset/www/products/index.html`.
 
-The URL scope **must** be HTTPS, and needs to be defined in config.xml as a preference with the name `"Scope"`:
+The URL scope **must** be HTTPS, **must** end with a trailing slash, and needs to be defined in config.xml as a preference with the name `"Scope"`:
 
 ```
 <preference name="Scope" value="https://example.com/myapp/" />
