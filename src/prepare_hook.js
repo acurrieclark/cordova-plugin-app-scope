@@ -17,7 +17,7 @@
 
 const configPatches = {
     android: function(context, scope) {
-        const et = context.requireCordovaModule('elementtree');
+        const et = require('elementtree');
 
         let intentFilter = et.Element('intent-filter');
         intentFilter.set('android:label', '@string/launcher_name');
@@ -42,7 +42,7 @@ const configPatches = {
     },
 
     ios: function(context, scope) {
-        const et = context.requireCordovaModule('elementtree');
+        const et = require('elementtree');
 
         let array = et.Element('array');
 
